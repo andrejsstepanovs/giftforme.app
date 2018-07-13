@@ -20,9 +20,9 @@
         <div class="row">
         </div>
         <div class="row">
-            <div class="col-md-6">
+<!--            <div class="col-md-6">
                 @include('show/like')
-            </div>
+            </div>-->
             <div class="col-md-6">
                 @include('show/claim')
             </div>

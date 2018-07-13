@@ -33,7 +33,7 @@
                         <p class="card-text">
                             {!! $gift->description !!}
                         </p>
-                        @include('show/like')
+                        <!--@include('show/like')-->
                     </div>
                 </div>
             @endforeach
