@@ -17,16 +17,19 @@
     </div>
 
     <div class="form-group row">
-        <label for="description{{ isset($gift) ? $gift->id : 0 }}" class="col-md-2 col-form-label text-md-right">{{ __('Description') }}</label>
+        <label for="giftdescriptiontextarea{{ isset($gift) ? $gift->id : 0 }}" class="col-md-2 col-form-label text-md-right">{{ __('Description') }}</label>
 
-        <div class="col-md-8">
-            <textarea id="description{{ isset($gift) ? $gift->id : 0 }}" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" >{{ old('description', isset($gift) ? $gift->description : null) }}</textarea>
+        <div class="col-md-8" id="descriptioneditbox{{ isset($gift) ? $gift->id : 0 }}">
+            <textarea id="giftdescriptiontextarea{{ isset($gift) ? $gift->id : 0 }}" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" >{{ old('description', isset($gift) ? $gift->description : null) }}</textarea>
 
             @if ($errors->has('description'))
                 <span class="invalid-feedback">
                     <strong>{{ $errors->first('description') }}</strong>
                 </span>
             @endif
+        </div>
+        <div class="col-md-8" id="descriptionpreviewbox{{ isset($gift) ? $gift->id : 0 }}">
+            {!! isset($gift) ? $gift->description : 'EDIT' !!}
         </div>
     </div>
 
@@ -48,10 +51,26 @@
 
 <script>
     jQuery('document').ready(function(){
-        $("#description{{ isset($gift) ? $gift->id : 0 }}").summernote({
-            placeholder: '{{ __('List description') }}',
-            height: 200,
-            focus: false
+        var editBox=$("#descriptioneditbox{{ isset($gift) ? $gift->id : 0 }}");
+        var viewBox=$("#descriptionpreviewbox{{ isset($gift) ? $gift->id : 0 }}");
+        viewBox.click(function(){
+            editBox.toggle();
+            viewBox.toggle();
+            if (editBox.is(':visible')) {
+                $("#giftdescriptiontextarea{{ isset($gift) ? $gift->id : 0 }}").summernote({
+                    placeholder: '{{ __('Gift description') }}',
+                    height: 400,
+                    focus: false
+                });
+            }
         });
     });
 </script>
+<style>
+    #descriptioneditbox{{ isset($gift) ? $gift->id : 0 }} {
+        display: none;
+    }
+    #descriptionpreviewbox{{ isset($gift) ? $gift->id : 0 }} {
+        display: block;
+    }
+</style>
