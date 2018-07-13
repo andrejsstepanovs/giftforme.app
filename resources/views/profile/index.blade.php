@@ -12,9 +12,9 @@
                 </div>
             @endif
         </div>
-
-        <h2>{{ $user->email }}</h2>
-
+        <h2>
+            <a href="{{ route('user', ['id' => $user->id]) }}" class='blacklink'>{{ $user->email }}</a>
+        </h2>
         <form method="POST" action="{{ route('admin/profile') }}">
             @csrf
             <div id="descriptioneditbox">
