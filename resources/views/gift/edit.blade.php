@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $gift->name.' - '.__('Edit').' '.__('Gift'))
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

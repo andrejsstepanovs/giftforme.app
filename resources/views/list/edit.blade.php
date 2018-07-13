@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $list->name.' - '.__('Edit').' '.__('List'))
+
 @section('content')
     <div class="card-body">
         @if (session('status'))

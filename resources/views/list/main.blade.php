@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', __('Lists'))
+
 @section('content')
     <div class="container">
         @if (count($lists))

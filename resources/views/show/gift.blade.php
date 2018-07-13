@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', __('Gift').' - '.$gift->name)
+
 @section('content')
 
     <div class="jumbotron">

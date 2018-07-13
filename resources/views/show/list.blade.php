@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', __('Lists').' - '.$list->name)
+
 @section('content')
 
     <div class="jumbotron">
