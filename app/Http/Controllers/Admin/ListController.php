@@ -16,8 +16,9 @@ class ListController extends Controller
      */
     public function index()
     {
-        $lists = GiftList::all();
-
+        $user  = Auth::user();
+        $lists = GiftList::where('user_id', $user->id)->get();
+        
         return view('/list/main', compact('lists'));
     }
 

@@ -49,6 +49,7 @@ Route::prefix('admin')->group(function () {
     });
 });
 
+Route::get('/user/{id}', 'PublicController@user')->name('user');
 Route::get('/show/{id}', 'PublicController@show')->name('show');
 Route::get('/like/{id}', 'PublicController@like')->name('like');
 Route::get('/unlike/{id}', 'PublicController@unlike')->name('unlike');

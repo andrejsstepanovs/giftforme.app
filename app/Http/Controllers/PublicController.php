@@ -4,9 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Gift;
 use App\GiftList;
+use App\User;
 
 class PublicController extends Controller
 {
+    public function user(int $id)
+    {
+        $user = User::findOrFail($id);
+        if (!$user->id) {
+            return redirect('/');
+        }
+        
+        $lists = GiftList::where('user_id', $user->id)->where('visibility', 'public')->get();
+        
+        return view('/show/user', compact('lists', 'user'));
+    }
+    
     public function show(int $id)
     {
         $list = GiftList::findOrFail($id);

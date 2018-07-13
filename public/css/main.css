@@ -4,3 +4,6 @@
 a.blacklink{
     color: black;
 }
+div.card-header {
+    background: none;
+}
