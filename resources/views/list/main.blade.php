@@ -6,7 +6,12 @@
     <div class="container">
         <h2>
             <a href="{{ route('user', ['id' => $user->id]) }}" class='blacklink'>{{ route('user', ['id' => $user->id]) }}</a>
+            <a href="{{ route('console/profile') }}" type="button" class="btn btn-light">{{ __('Edit') }} {{ __('User') }}</a>
         </h2>
+        
+        <div>
+            {!! $user->description !!}
+        </div>
         
         @if (count($menuLists))
             <table class="table">
@@ -24,7 +29,7 @@
                     <tr>
                         <th>{{ $list->id }}</th>
                         <td>
-                            <a href="{{ route('admin/list/edit', ['id' => $list->id]) }}">
+                            <a href="{{ route('console/list/edit', ['id' => $list->id]) }}">
                                 {{ $list->name }}
                             </a>
                         </td>

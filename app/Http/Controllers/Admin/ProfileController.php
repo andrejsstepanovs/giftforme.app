@@ -22,6 +22,6 @@ class ProfileController extends Controller
         $user->description = $request->get('description');
         $user->save();
 
-        return redirect('admin/profile')->with('status', 'Saved!');;
+        return redirect('console/profile')->with('status', 'Saved!');;
     }
 }

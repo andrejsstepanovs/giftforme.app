@@ -14,7 +14,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        {{ __('List: ') }}<a href="{{ route('admin/list/edit', ['id' => $list->id]) }}">{{ $list->name }}</a>
+                        {{ __('List: ') }}<a href="{{ route('console/list/edit', ['id' => $list->id]) }}">{{ $list->name }}</a>
                     </div>
                 </div>
 

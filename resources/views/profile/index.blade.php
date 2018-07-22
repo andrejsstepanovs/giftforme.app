@@ -15,7 +15,7 @@
         <h2>
             <a href="{{ route('user', ['id' => $user->id]) }}" class='blacklink'>{{ $user->email }}</a>
         </h2>
-        <form method="POST" action="{{ route('admin/profile') }}">
+        <form method="POST" action="{{ route('console/profile') }}">
             @csrf
             <div id="descriptioneditbox">
                 <textarea id="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" >{{ old('description', $user->description) }}</textarea>

@@ -14,7 +14,7 @@ class GiftController extends Controller
     {
         $gift = Gift::find($id);
         if (!$gift) {
-            return redirect()->route('admin/list');
+            return redirect()->route('console/list');
         }
 
         $list = GiftList::find($gift->gift_list_id);
@@ -35,7 +35,7 @@ class GiftController extends Controller
             $gift = $gift->find($id);
             if ($request->get('delete') == 'delete') {
                 $gift->delete();
-                return redirect()->route('admin/list/edit', ['id' => $gift->giftList->id])->with('status', 'Deleted!');
+                return redirect()->route('console/list/edit', ['id' => $gift->giftList->id])->with('status', 'Deleted!');
             }
         }
 
@@ -44,6 +44,6 @@ class GiftController extends Controller
         $gift->gift_list_id = $validated['gift_list_id'];
         $gift->save();
 
-        return redirect()->route('admin/gift/edit', ['id' => $gift->id])->with('status', 'Saved!');
+        return redirect()->route('console/gift/edit', ['id' => $gift->id])->with('status', 'Saved!');
     }
 }

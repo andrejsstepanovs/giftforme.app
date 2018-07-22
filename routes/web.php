@@ -24,17 +24,17 @@ Route::prefix('console')->group(function () {
     Route::namespace('Admin')->group(function () {
         Route::middleware(['auth'])->group(function () {
 
-            Route::get('/', 'AdminController@index')->name('admin');
+            Route::get('/', 'AdminController@index')->name('console');
 
-            Route::get('/list', 'ListController@index')->name('admin/list');
-            Route::get('/list/{id}', 'ListController@edit')->name('admin/list/edit');
-            Route::post('/list/{id}', 'ListController@save')->name('admin/list/save');
+            Route::get('/list', 'ListController@index')->name('console/list');
+            Route::get('/list/{id}', 'ListController@edit')->name('console/list/edit');
+            Route::post('/list/{id}', 'ListController@save')->name('console/list/save');
 
-            Route::get('/gift/{id}', 'GiftController@edit')->name('admin/gift/edit');
-            Route::post('/gift/{id}', 'GiftController@save')->name('admin/gift/save');
+            Route::get('/gift/{id}', 'GiftController@edit')->name('console/gift/edit');
+            Route::post('/gift/{id}', 'GiftController@save')->name('console/gift/save');
 
-            Route::get('/profile', 'ProfileController@index')->name('admin/profile');
-            Route::post('/profile', 'ProfileController@save')->name('admin/profile-save');
+            Route::get('/profile', 'ProfileController@index')->name('console/profile');
+            Route::post('/profile', 'ProfileController@save')->name('console/profile-save');
 
             View::composer(['*'], function($view)
             {

@@ -11,7 +11,7 @@
             <tr>
                 <th>{{ $gift->id }}</th>
                 <td>
-                    <a href="{{ route('admin/gift/edit', ['id' => $gift->id]) }}">{{ $gift->name }}</a>
+                    <a href="{{ route('console/gift/edit', ['id' => $gift->id]) }}">{{ $gift->name }}</a>
                 </td>
                 <td>
                     {{ $gift->likes }}</a>

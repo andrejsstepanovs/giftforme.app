@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('admin/gift/save', ['id' => isset($gift) ? $gift->id : 0]) }}">
+<form method="POST" action="{{ route('console/gift/save', ['id' => isset($gift) ? $gift->id : 0]) }}">
     @csrf
 
     <input type="hidden" name="gift_list_id" value="{{ $list->id }}">

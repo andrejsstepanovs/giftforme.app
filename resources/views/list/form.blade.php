@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('admin/list/save', ['id' => $list->id ?: 0 ]) }}">
+<form method="POST" action="{{ route('console/list/save', ['id' => $list->id ?: 0 ]) }}">
     @csrf
 
     <div class="form-group row">

@@ -45,7 +45,7 @@ class ListController extends Controller
             $giftList = $giftList->find($id);
             if ($request->get('delete') == 'delete') {
                 $giftList->delete();
-                return redirect('admin/list')->with('status', 'Deleted!');
+                return redirect('console/list')->with('status', 'Deleted!');
             }
         }
 
@@ -55,6 +55,6 @@ class ListController extends Controller
         $giftList->visibility   = $validated['visibility'];
         $giftList->save();
 
-        return redirect()->route('admin/list/edit', ['id' => $giftList->id])->with('status', 'Saved!');
+        return redirect()->route('console/list/edit', ['id' => $giftList->id])->with('status', 'Saved!');
     }
 }

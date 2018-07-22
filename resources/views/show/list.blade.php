@@ -8,7 +8,7 @@
         <div class="container">
             <h1 class="display-3">
                 @auth
-                    <a class="blacklink" href="{{ route('admin/list/edit', ['id' => $list->id]) }}" >
+                    <a class="blacklink" href="{{ route('console/list/edit', ['id' => $list->id]) }}" >
                 @endauth
                 {{ $list->name }}
                 @auth
