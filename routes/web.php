@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::prefix('admin')->group(function () {
+Route::prefix('console')->group(function () {
     Route::namespace('Admin')->group(function () {
         Route::middleware(['auth'])->group(function () {
 

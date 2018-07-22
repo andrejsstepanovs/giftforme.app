@@ -4,6 +4,10 @@
 
 @section('content')
     <div class="container">
+        <h2>
+            <a href="{{ route('user', ['id' => $user->id]) }}" class='blacklink'>{{ route('user', ['id' => $user->id]) }}</a>
+        </h2>
+        
         @if (count($lists))
             <table class="table">
                 <thead>
