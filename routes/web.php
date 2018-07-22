@@ -41,8 +41,8 @@ Route::prefix('console')->group(function () {
                 $user = \Illuminate\Support\Facades\Auth::user();
                 if ($user) {
                     $userId = $user->id;
-                    $lists = (new \App\GiftList())->where('user_id', $userId)->get();;
-                    $view->with('lists', $lists);
+                    $menuLists = (new \App\GiftList())->where('user_id', $userId)->get();;
+                    $view->with('menuLists', $menuLists);
                 }
             });
         });

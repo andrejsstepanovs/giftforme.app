@@ -8,7 +8,7 @@
             <a href="{{ route('user', ['id' => $user->id]) }}" class='blacklink'>{{ route('user', ['id' => $user->id]) }}</a>
         </h2>
         
-        @if (count($lists))
+        @if (count($menuLists))
             <table class="table">
                 <thead>
                 <tr>
@@ -20,7 +20,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($lists as $list)
+                @foreach($menuLists as $list)
                     <tr>
                         <th>{{ $list->id }}</th>
                         <td>

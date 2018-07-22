@@ -4,7 +4,7 @@
         <a class="dropdown-item" href="{{ route('admin') }}">{{ __('All') }}</a>
         <div class="dropdown-divider"></div>
 
-        @foreach($lists as $list)
+        @foreach($menuLists as $list)
             <a class="dropdown-item" href="{{ route('admin/list/edit', ['id' => $list->id]) }}">{{ $list->name }} ({{ __($list->visibility) }})</a>
         @endforeach
 
