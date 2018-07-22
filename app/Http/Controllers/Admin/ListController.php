@@ -19,7 +19,7 @@ class ListController extends Controller
         $user  = Auth::user();
         $lists = GiftList::where('user_id', $user->id)->get();
         
-        return view('/list/main', compact('lists'));
+        return view('/list/main', compact('lists', 'user'));
     }
 
     public function edit(int $id)
