@@ -6,15 +6,7 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3">
-                @auth
-                    <a class="blacklink" href="{{ route('console/list/edit', ['id' => $list->id]) }}" >
-                @endauth
-                {{ $list->name }}
-                @auth
-                    </a>
-                @endauth
-            </h1>
+            <h1 class="display-3">{{ $list->name }}</h1>
             <hr/>
             {!! $list->description !!}
         </div>

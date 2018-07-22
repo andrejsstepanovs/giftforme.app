@@ -15,7 +15,7 @@ class PublicController extends Controller
             return redirect('/');
         }
         
-        $lists = GiftList::where('user_id', $user->id)->where('visibility', 'public')->get();
+        $lists = GiftList::where('user_id', $user->id)->where('visibility', 'public')->orderBy('sort', 'DESC')->get();
         
         return view('/show/user', compact('lists', 'user'));
     }

@@ -29,6 +29,8 @@ Route::prefix('console')->group(function () {
             Route::get('/list', 'ListController@index')->name('console/list');
             Route::get('/list/{id}', 'ListController@edit')->name('console/list/edit');
             Route::post('/list/{id}', 'ListController@save')->name('console/list/save');
+            Route::get('/list/sort/down/{id}', 'ListController@sortUp')->name('console/list/sort/up');
+            Route::get('/list/sort/up/{id}', 'ListController@sortDown')->name('console/list/sort/down');
 
             Route::get('/gift/{id}', 'GiftController@edit')->name('console/gift/edit');
             Route::post('/gift/{id}', 'GiftController@save')->name('console/gift/save');
@@ -41,7 +43,7 @@ Route::prefix('console')->group(function () {
                 $user = \Illuminate\Support\Facades\Auth::user();
                 if ($user) {
                     $userId = $user->id;
-                    $menuLists = (new \App\GiftList())->where('user_id', $userId)->get();;
+                    $menuLists = (new \App\GiftList())->where('user_id', $userId)->orderBy('sort', 'DESC')->get();
                     $view->with('menuLists', $menuLists);
                 }
             });

@@ -18,7 +18,7 @@ class ListController extends Controller
     {
         $user  = Auth::user();
         $lists = GiftList::where('user_id', $user->id)->get();
-        
+
         return view('/list/main', compact('lists', 'user'));
     }
 
@@ -56,5 +56,35 @@ class ListController extends Controller
         $giftList->save();
 
         return redirect()->route('console/list/edit', ['id' => $giftList->id])->with('status', 'Saved!');
+    }
+    
+    public function sortUp(int $id)
+    {
+        $list = new GiftList();
+        if ($id) {
+            $list = $list->findOrFail($id);
+            if ($list->user->id != Auth::user()->id) {
+                throw new \RuntimeException('');
+            }
+            
+            $list->increment('sort');
+        }
+
+        return back();
+    }
+    
+    public function sortDown(int $id)
+    {
+        $list = new GiftList();
+        if ($id) {
+            $list = $list->findOrFail($id);
+            if ($list->user->id != Auth::user()->id) {
+                throw new \RuntimeException('');
+            }
+            
+            $list->decrement('sort');
+        }
+
+        return back();
     }
 }

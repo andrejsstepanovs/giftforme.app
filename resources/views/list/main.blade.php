@@ -17,7 +17,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">{{ __('Sort') }}</th>
                     <th scope="col">{{ __('Name') }}</th>
                     <th scope="col">{{ __('Visibility') }}</th>
                     <th scope="col">{{ __('Views') }}</th>
@@ -27,7 +27,12 @@
                 <tbody>
                 @foreach($menuLists as $list)
                     <tr>
-                        <th>{{ $list->id }}</th>
+                        <th>
+                            <div style="float:left;">{{ $list->sort }}</div>
+                            <div class="col"><a class="button" href="{{ route('console/list/sort/up', ['id' => $list->id]) }}" >{{ __('Up') }}</a></div>
+                            <div class="w-100"></div>
+                            <div class="col"><a class="button" href="{{ route('console/list/sort/down', ['id' => $list->id]) }}" >{{ __('Down') }}</a></div>
+                        </th>
                         <td>
                             <a href="{{ route('console/list/edit', ['id' => $list->id]) }}">
                                 {{ $list->name }}
